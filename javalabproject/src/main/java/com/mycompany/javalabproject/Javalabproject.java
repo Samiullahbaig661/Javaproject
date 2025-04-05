@@ -11,6 +11,5 @@ package com.mycompany.javalabproject;
 public class Javalabproject {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
     }
 }

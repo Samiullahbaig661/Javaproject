@@ -5,13 +5,21 @@
 package com.mycompany.javalabproject;
 
 import com.mycompany.javalabproject.dto.FirDto;
+import com.mycompany.javalabproject.dto.Firformwraper;
 import java.awt.Component;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.awt.Insets;
 import javax.swing.JOptionPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import com.mycompany.javalabproject.service.FirService;
-
+import com.mycompany.javalabproject.service.Formvalidator;
+import com.mycompany.javalabproject.dto.ResetDetails;
+//import org.jdatepicker.JDatePicker;
+//import org.jdatepicker.impl.JDatePanelImpl;
+//import org.jdatepicker.impl.SqlDateModel;
 /**
  *
  * @author CC
@@ -24,7 +32,22 @@ public class FIRFrm extends javax.swing.JFrame {
      */
     public FIRFrm() {
         initComponents();
+          
+            txtname.setMargin(new Insets(0, 10, 0, 0));
+    txtFathername.setMargin(new Insets(0, 10, 0, 0));
+    txtcnic.setMargin(new Insets(0, 10, 0, 0));
+    txtphoenNumber.setMargin(new Insets(0, 10, 0, 0));
+    txtAddress.setMargin(new Insets(0, 10, 0, 0));
+    txtincident_location.setMargin(new Insets(0, 10, 0, 0));
+    jTextField10.setMargin(new Insets(0, 10, 0, 0));
+    txtOfficerName.setMargin(new Insets(0, 10, 0, 0));
+    jTextArea1.setMargin(new Insets(10, 10, 10, 10));
+       String cnicText = txtcnic.getText().replaceAll("-", "");
+        if (cnicText.length() == 13 && cnicText.matches("\\d+")) {
+            Formvalidator.applyCnicaDash(txtcnic,cnicText);
+        }
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +84,6 @@ public class FIRFrm extends javax.swing.JFrame {
         submit = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        txtAddress1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -73,6 +95,7 @@ public class FIRFrm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -80,7 +103,7 @@ public class FIRFrm extends javax.swing.JFrame {
 
         jLabel13.setBackground(new java.awt.Color(0, 204, 204));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel13.setText("Name");
+        jLabel13.setText("Name:");
         jLabel13.setAlignmentX(0.5F);
         jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -229,13 +252,6 @@ public class FIRFrm extends javax.swing.JFrame {
         jTextArea1.setName(""); // NOI18N
         jScrollPane1.setViewportView(jTextArea1);
 
-        txtAddress1.setName("txtDate"); // NOI18N
-        txtAddress1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddress1ActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Reset");
         jButton1.setName("btnReset"); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -243,6 +259,28 @@ public class FIRFrm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel11.setText("SelectDate");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,11 +302,11 @@ public class FIRFrm extends javax.swing.JFrame {
                                 .addGap(107, 107, 107))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtpoliceStation, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tA_description, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tA_description, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField10)
@@ -276,12 +314,13 @@ public class FIRFrm extends javax.swing.JFrame {
                             .addComponent(cbCrimeType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtincident_location)
                             .addComponent(txtOfficerName)
-                            .addComponent(txtAddress1)
                             .addComponent(txtphoenNumber)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -289,7 +328,8 @@ public class FIRFrm extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtcnic)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtAddress)))
+                            .addComponent(txtAddress)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +343,7 @@ public class FIRFrm extends javax.swing.JFrame {
                                     .addGap(6, 6, 6)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 120, Short.MAX_VALUE))
+                .addGap(0, 123, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,9 +364,9 @@ public class FIRFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(txtFathername))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcnic, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(jLabel14))
@@ -342,12 +382,12 @@ public class FIRFrm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(txtAddress))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addGap(2, 2, 2)
@@ -407,6 +447,7 @@ public class FIRFrm extends javax.swing.JFrame {
         jLabel8.getAccessibleContext().setAccessibleName("lblpolicestanameerr");
         jLabel9.getAccessibleContext().setAccessibleName("lblofficererr");
         jLabel10.getAccessibleContext().setAccessibleName("lbldescriptionerr");
+        jLabel11.getAccessibleContext().setAccessibleName("lblDate");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -445,116 +486,38 @@ public class FIRFrm extends javax.swing.JFrame {
 
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
     // First check if any field is empty
-    boolean isValid =true;
-    jLabel1.setText("");
-        jLabel2.setText("");
-        jLabel3.setText("");
-        jLabel4.setText("");
-        jLabel5.setText("");
-        jLabel6.setText("");
-        jLabel7.setText("");
-        jLabel8.setText("");
-        jLabel9.setText("");
-        jLabel10.setText("");
-        String phone = txtphoenNumber.getText().trim();
-        String cnic = txtcnic.getText().trim();
-        String description = jTextArea1.getText().trim();
-        int wordCount = description.split("\\s+").length;
-    if (txtname.getText().trim().isEmpty()) {
-        jLabel1.setText("Name is required.");
-        isValid = false;
-    }        
-    else if (!phone.matches("\\d{11}")) {
-        jLabel1.setText("Enter 11 digit phone number.");
-        isValid = false;
-    }
-    else {
-        jLabel1.setText("");
-    }
-    if (txtFathername.getText().trim().isEmpty()) {
-        jLabel2.setText("Father Name is required.");
-        isValid = false;
-    }
-    if (txtcnic.getText().trim().isEmpty()) {
-        jLabel3.setText("CNIC is required.");
-        isValid = false;
-    }
-     else if (!cnic.matches("\\d{13}")) {
-        jLabel3.setText("Enter 13 digit CNIC.");
-        isValid = false;
-    }
-     else {
-        jLabel3.setText("");
-    }
-    if (txtphoenNumber.getText().trim().isEmpty()) {
-        jLabel4.setText("Phone number is required.");
-        isValid = false;
-    }
-    if (txtAddress.getText().trim().isEmpty()) {
-        jLabel5.setText("Address is required.");
-        isValid = false;
-    }
-    if (txtAddress1.getText().trim().isEmpty()) {
-        jLabel6.setText("Date is required.");
-        isValid = false;
-    }
-    if (txtincident_location.getText().trim().isEmpty()) {
-        jLabel7.setText("Location is required.");
-        isValid = false;
-    }
-
-    if (jTextField10.getText().trim().isEmpty()) {
-        jLabel8.setText("Police Station required.");
-        isValid = false;
-    }
-    if (txtOfficerName.getText().trim().isEmpty()) {
-        jLabel9.setText("Officer Name is required.");
-        isValid = false;
-    }
-    if (jTextArea1.getText().trim().isEmpty()) {
-        jLabel10.setText("description is required.");
-        isValid = false;
-    }
-    else if (wordCount > 100) {
-    jLabel10.setText("Max 100 words allowed. Currently: " + wordCount);
-    isValid = false;
-    } else {
-        jLabel10.setText("");
-    }
-
-    if (!isValid) {
-        return; // Don't submit if errors exist
-    }
     
-      FirDto fir = new FirDto();
-
-    fir.setName(txtname.getText());
-    fir.setFatherName(txtFathername.getText());
-    fir.setCnic(txtcnic.getText());
-    fir.setPhoneNo(txtphoenNumber.getText());
-    fir.setAddress(txtAddress.getText());
-    fir.setIncidentDate(txtAddress1.getText());
-    fir.setIncidentLocation(txtincident_location.getText());
-    fir.setCrimeType((String) cbCrimeType.getSelectedItem());
-    fir.setStatus((String) jComboBox1.getSelectedItem());
-    fir.setPoliceStation(jTextField10.getText());
-    fir.setOfficerName(txtOfficerName.getText());
-    // Description field can also be added here if you want.
-
-    // Now you have all the form data inside fir object
-    
+   boolean isValid = Formvalidator.validateForm(
+    txtname, jLabel1,
+    txtFathername, jLabel2,
+    txtcnic, jLabel3,
+    txtphoenNumber, jLabel4,
+    txtAddress, jLabel5, jLabel6,
+    txtincident_location, jLabel7,
+    jTextField10, jLabel8,
+    txtOfficerName, jLabel9,
+    jTextArea1, jLabel10
+    );
    
-        // If all fields are filled, show success message
-        
-
+    if (!isValid) {
+        return; // stop submission
+    }
+      FirDto fir = Firformwraper.mapFormToFIR( txtname,
+    txtFathername,
+    txtcnic,
+    txtphoenNumber,
+    txtAddress,
+    txtincident_location,
+    cbCrimeType,
+    jComboBox1,
+    jTextField10,
+    txtOfficerName);     
         // Now save the data into a file
      FirService service = new FirService();
      JOptionPane.showMessageDialog(this, "Form Submitted: " + fir.getName());
      service.saveFir(fir);
     jButton1ActionPerformed(evt); // reset button
         // (Optional) Clear the form here if you want
-  
-
     // If all fields are filled, then proceed
   
     }//GEN-LAST:event_submitActionPerformed
@@ -567,41 +530,29 @@ public class FIRFrm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbCrimeTypeActionPerformed
 
-    private void txtAddress1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddress1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddress1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-          txtname.setText("");
-    txtFathername.setText("");
-    txtcnic.setText("");
-    txtphoenNumber.setText("");
-    txtAddress.setText("");
-    txtAddress1.setText("");
-    txtincident_location.setText("");
-    cbCrimeType.setSelectedIndex(0);
-    jComboBox1.setSelectedIndex(0);
-    jTextField10.setText("");
-    txtOfficerName.setText("");
-    jTextArea1.setText("");
+     
+      ResetDetails.reset(txtname, txtFathername, txtcnic,
+              txtphoenNumber, txtAddress,
+              txtincident_location, cbCrimeType, jComboBox1, 
+              jTextField10, txtOfficerName, jTextArea1, jLabel1,
+              jLabel2, jLabel3, jLabel4, jLabel5, jLabel6,
+              jLabel7, jLabel8, jLabel9, jLabel10);         // TODO add your handling code here:
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    
-    
-    
-    public static void main(String args[]) {
        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FIRFrm().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//       
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FIRFrm().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbCrimeType;
@@ -610,6 +561,7 @@ public class FIRFrm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -634,7 +586,6 @@ public class FIRFrm extends javax.swing.JFrame {
     private javax.swing.JToggleButton submit;
     private javax.swing.JLabel tA_description;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtFathername;
     private javax.swing.JTextField txtOfficerName;
     private javax.swing.JTextField txtcnic;

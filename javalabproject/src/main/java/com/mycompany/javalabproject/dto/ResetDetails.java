@@ -14,7 +14,6 @@ public class ResetDetails {
         JTextField txtcnic,
         JTextField txtphoenNumber,
         JTextField txtAddress,
-        JTextField txtAddress1,
         JTextField txtincident_location,
         JComboBox<String> cbCrimeType,
         JComboBox<String> jComboBox1,
@@ -37,7 +36,6 @@ public class ResetDetails {
         txtcnic.setText("");
         txtphoenNumber.setText("");
         txtAddress.setText("");
-        txtAddress1.setText("");
         txtincident_location.setText("");
         cbCrimeType.setSelectedIndex(0);
         jComboBox1.setSelectedIndex(0);

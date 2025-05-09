@@ -16,7 +16,6 @@ import  com.mycompany.javalabproject.dto.FirDto;
         JTextField txtcnic,
         JTextField txtphoenNumber,
         JTextField txtAddress,
-        JTextField txtAddress1,
         JTextField txtincident_location,
         JComboBox<String> cbCrimeType,
         JComboBox<String> jComboBox1,
@@ -29,7 +28,6 @@ import  com.mycompany.javalabproject.dto.FirDto;
         fir.setCnic(txtcnic.getText());
         fir.setPhoneNo(txtphoenNumber.getText());
         fir.setAddress(txtAddress.getText());
-        fir.setIncidentDate(txtAddress1.getText());
         fir.setIncidentLocation(txtincident_location.getText());
         fir.setCrimeType((String) cbCrimeType.getSelectedItem());
         fir.setStatus((String) jComboBox1.getSelectedItem());

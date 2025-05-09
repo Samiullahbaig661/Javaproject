@@ -18,7 +18,7 @@ public class Formvalidator {
         JTextField txtcnic, JLabel jLabel3,
         JTextField txtAddress, JLabel jLabel4,
         JTextField txtphoenNumber, JLabel jLabel5,
-        JTextField txtAddress1, JLabel jLabel6,
+         JLabel jLabel6,
         JTextField txtincident_location, JLabel jLabel7,
         JTextField jTextField10, JLabel jLabel8,
         JTextField txtOfficerName, JLabel jLabel9,
@@ -66,10 +66,10 @@ public class Formvalidator {
             isValid = false;
         }
 
-        if (txtAddress1.getText().trim().isEmpty()) {
-            jLabel6.setText("Date is required.");
-            isValid = false;
-        }
+//        if (txtAddress1.getText().trim().isEmpty()) {
+//            jLabel6.setText("Date is required.");
+//            isValid = false;
+//        }
 
         if (txtincident_location.getText().trim().isEmpty()) {
             jLabel7.setText("Location is required.");
